@@ -7,7 +7,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  count = 3
+  count = 2
 
   vpc_id                  = "${aws_vpc.main.id}"
   cidr_block              = "${element(var.public_subnet_cidr, count.index)}"

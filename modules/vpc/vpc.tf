@@ -7,14 +7,14 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  count = 2
+  count                   = 2
   vpc_id                  = "${aws_vpc.main.id}"
   cidr_block              = "${element(var.public_subnet_cidr, count.index)}"
   availability_zone       = "${element(data.aws_availability_zones.available.names, count.index)}"
   map_public_ip_on_launch = true
 
   tags {
-    Name = "demo-env-pub-${element(data.aws_availability_zones.available.names, count.index)}"
+    Name = "${var.name_tag}-pub-${element(data.aws_availability_zones.available.names, count.index)}"
   }
 }
 

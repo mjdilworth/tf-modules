@@ -14,3 +14,7 @@ variable "public_subnet_cidr" {
 variable "name_tag" {
   description = "Name tag for VPC"
 }
+
+variable "number_public_subnets"{
+  description = "Number of public subnets to use - should match AZ"
+}

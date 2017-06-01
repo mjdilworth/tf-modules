@@ -2,13 +2,12 @@ resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cidr_block}"
 
   tags {
-    Name = "demo-env"
+    Name = "${var.name_tag}"
   }
 }
 
 resource "aws_subnet" "public_subnet" {
   count = 2
-
   vpc_id                  = "${aws_vpc.main.id}"
   cidr_block              = "${element(var.public_subnet_cidr, count.index)}"
   availability_zone       = "${element(data.aws_availability_zones.available.names, count.index)}"

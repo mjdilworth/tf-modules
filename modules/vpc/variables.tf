@@ -10,3 +10,6 @@ variable "public_subnet_cidr" {
   type = "list"
   description = "List of CIDR blocks for all the public subnet in eu-west-1a, b and c"
 }
+variable "name_tag" {
+  description = "Name tag for VPC"
+}

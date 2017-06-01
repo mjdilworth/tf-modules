@@ -2,7 +2,7 @@ resource "aws_vpc" "main" {
   cidr_block = "${var.vpc_cidr_block}"
 
   tags {
-    Name = "tooling-env"
+    Name = "demo-env"
   }
 }
 
@@ -15,7 +15,7 @@ resource "aws_subnet" "public_subnet" {
   map_public_ip_on_launch = true
 
   tags {
-    Name = "tooling-env-pub-${element(data.aws_availability_zones.available.names, count.index)}"
+    Name = "demo-env-pub-${element(data.aws_availability_zones.available.names, count.index)}"
   }
 }
 
@@ -23,7 +23,7 @@ resource "aws_internet_gateway" "main" {
   vpc_id = "${aws_vpc.main.id}"
 
   tags {
-    Name = "tooling-env"
+    Name = "demo-env"
   }
 }
 

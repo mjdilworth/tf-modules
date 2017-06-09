@@ -3,6 +3,7 @@
 ## Structure ##
 - examples
 - modules
+  - VPC
 - tests
 
 obviously to-do
